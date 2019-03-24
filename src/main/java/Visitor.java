@@ -15,7 +15,7 @@ public class Visitor extends Java8BaseVisitor<String> {
             int stop = node.getSymbol().getStopIndex();
 
             TokenSource tokenSource = node.getSymbol().getTokenSource();
-            String tokenContext = tokenSource.getInputStream().getText(new Interval(start - 1, stop));
+            String tokenContext = tokenSource.getInputStream().getText(new Interval(start, stop + 1));
 
             String text = ctx.getText();
             char next = tokenContext.charAt(tokenContext.length() - 1);
