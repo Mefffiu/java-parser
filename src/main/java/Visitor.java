@@ -19,7 +19,7 @@ public class Visitor extends Java8BaseVisitor<String> {
 
             String text = ctx.getText();
             char next = tokenContext.charAt(tokenContext.length() - 1);
-            if (next == ' ') text = text + " ";
+            if (Character.isWhitespace(next)) text = text + " ";
 
             return text;
         }
