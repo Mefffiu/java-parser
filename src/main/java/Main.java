@@ -32,7 +32,8 @@ public class Main {
 
     public static void main(String[] args) {
         analyzeFileStructure("Main.java");
-        analyzeFileStructure("NWD.java");
+//        analyzeFileStructure("NWD.java");
+//        analyzeFileStructure("Java8Parser.java");
     }
 
 }
