@@ -33,11 +33,7 @@ public class DataRow {
 
     @Override
     public String toString() {
-        return "DataRow [" +
-                "label='" + label + '\'' +
-                ", context='" + context + '\'' +
-                ", codeFragment='" + codeFragment + '\'' +
-                ']';
+        return String.format("label: %-20s context: %-20s codeFragment: '%s'", label, context, codeFragment);
     }
 
 }

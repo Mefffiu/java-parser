@@ -13,15 +13,19 @@ public class DataCollector {
     private static final Map<Class, String> structures = new HashMap<>();
 
     static {
-        // todo: map all recognizable structures
+        structures.put(Java8Parser.CompilationUnitContext.class, "file_content"); // highest order structure
+
+        structures.put(Java8Parser.ImportDeclarationContext.class, "import_declaration");
         structures.put(Java8Parser.ClassDeclarationContext.class, "class_declaration");
         structures.put(Java8Parser.MethodDeclarationContext.class, "method_declaration");
-        structures.put(Java8Parser.MethodInvocationContext.class, "method_invocation");
-        structures.put(Java8Parser.ImportDeclarationContext.class, "import_declaration");
         structures.put(Java8Parser.IfThenStatementContext.class, "if_then_statement");
-        structures.put(Java8Parser.ForStatementContext.class, "for_statement");
-        structures.put(Java8Parser.TryStatementContext.class, "try_statement");
+        structures.put(Java8Parser.SwitchStatementContext.class, "switch_statement");
         structures.put(Java8Parser.WhileStatementContext.class, "while_statement");
+        structures.put(Java8Parser.ForStatementContext.class, "for_statement");
+        structures.put(Java8Parser.ReturnStatementContext.class, "return_statement");
+        structures.put(Java8Parser.TryStatementContext.class, "try_statement");
+        structures.put(Java8Parser.MethodInvocationContext.class, "method_invocation");
+        // todo: any new structures implemented in Visitor class should be also mapped here
     }
 
 
@@ -59,9 +63,9 @@ public class DataCollector {
         return null;
     }
 
-    public void saveDataRow(Class structureClass, ParseTree ctx) {
+    public void saveDataRow(ParseTree ctx) {
         DataRow dataRow = new DataRow();
-        dataRow.setLabel(structures.get(structureClass));
+        dataRow.setLabel(structures.get(ctx.getClass()));
         dataRow.setContext(findContext(ctx));
         dataRow.setCodeFragment(findCodeFragment(ctx).trim());
 
