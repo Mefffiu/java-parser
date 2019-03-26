@@ -31,8 +31,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        // todo: add folder support, path to file in args[0], output file name in args[1] for example
+
         analyzeFileStructure("Main.java");
-//        analyzeFileStructure("NWD.java");
+        analyzeFileStructure("NWD.java");
 //        analyzeFileStructure("Java8Parser.java");
     }
 

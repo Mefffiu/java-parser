@@ -7,12 +7,6 @@ public class DataRow {
     public DataRow() {
     }
 
-    public DataRow(String label, String codeFragment, String context) {
-        this.label = label;
-        this.codeFragment = codeFragment;
-        this.context = context;
-    }
-
     public String getLabel() {
         return label;
     }
@@ -41,8 +35,8 @@ public class DataRow {
     public String toString() {
         return "DataRow [" +
                 "label='" + label + '\'' +
-                ", codeFragment='" + codeFragment + '\'' +
                 ", context='" + context + '\'' +
+                ", codeFragment='" + codeFragment + '\'' +
                 ']';
     }
 
