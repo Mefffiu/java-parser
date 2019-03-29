@@ -4,6 +4,7 @@ import antlr.Java8Parser;
 public class Visitor extends Java8BaseVisitor<String> {
 
     private DataCollector dataCollector = new DataCollector();
+    private String directoryPath;
 
     @Override
     public String visitCastExpression(Java8Parser.CastExpressionContext ctx){
@@ -1421,4 +1422,11 @@ public class Visitor extends Java8BaseVisitor<String> {
         return super.visitLiteral(ctx);
     }
 
+    public String getDirectoryPath() {
+        return directoryPath;
+    }
+
+    public void setDirectoryPath(String directoryPath) {
+        this.directoryPath = directoryPath;
+    }
 }

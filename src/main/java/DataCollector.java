@@ -5,8 +5,11 @@ import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DataCollector {
 
@@ -252,7 +255,6 @@ public class DataCollector {
         structures.put(Java8Parser.LiteralContext.class, "literal");
     }
 
-
     private static String findCodeFragment(ParseTree ctx) {
         if (ctx instanceof TerminalNode) {
             TerminalNode node = (TerminalNode) ctx;
@@ -287,14 +289,38 @@ public class DataCollector {
         return null;
     }
 
-    public void saveDataRow(ParseTree ctx) {
+    void saveDataRow(ParseTree ctx, String outputFilePath) {
         DataRow dataRow = new DataRow();
         dataRow.setLabel(structures.get(ctx.getClass()));
         dataRow.setContext(findContext(ctx));
         dataRow.setCodeFragment(findCodeFragment(ctx).trim());
 
-        // todo: save to file, collection
-        System.out.println(dataRow.toString());
+        BufferedWriter writer;
+        try {
+            writer = new BufferedWriter(new FileWriter(outputFilePath, true));
+            writer.newLine();
+            writer.append(convertToCSV(Arrays.asList(dataRow.getLabel(), dataRow.getContext(), dataRow.getCodeFragment())));
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
+    private String convertToCSV(List<String> data) {
+        return data.stream()
+                .map(this::escapeQuotes)
+                .collect(Collectors.joining(","));
+    }
+
+    private String escapeQuotes(String data) {
+        if (Objects.isNull(data)) {
+            return "-";
+        }
+        String escapedData = data.replaceAll("\\R", " ");
+        if (data.contains("\"") || data.contains("'")) {
+            data = data.replace("\"", "\"\"");
+            escapedData = "\"" + data + "\"";
+        }
+        return escapedData;
+    }
 }
