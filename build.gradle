@@ -24,3 +24,13 @@ generateGrammarSource {
     arguments += ['-visitor', '-long-messages']
     outputDirectory = new File('src/main/java/antlr')
 }
+
+jar {
+    manifest {
+        attributes 'Main-class': 'Main'
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
