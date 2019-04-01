@@ -67,6 +67,31 @@ df = pd.read_csv(path_to_output_csv)
 df.head()
 ```
 
+### Recognized structures:
+1. Statements:
+* Method Invocation
+* Return Statement
+* If Then Statement
+* If Then Else Statement
+* Try With Resources Statement
+* Try Statement
+* For Statement
+* Do Statement
+* While Statement
+* Switch Statement
+
+
+2. Declarations:
+* Import Declaration
+* Package Declaration
+* Constant Declaration
+* Interface Declaration
+* Enum Declaration
+* Class Declaration
+* Constructor Declaration
+* Field Declaration
+* Method Declaration
+
 # Authors
 * [Karol Leśniak](https://github.com/kajkal)
 * [Damian Falana](https://github.com/falanadamian)
