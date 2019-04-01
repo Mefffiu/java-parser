@@ -26,6 +26,7 @@ public class DataWriter {
     }
 
     public void writeData(List<DataRow> dataRows) {
+        log.info("Saving structures...");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilePath, true))) {
             for (DataRow dataRow : dataRows) {
                 writer.newLine();

@@ -22,7 +22,7 @@ public class FileExplorer {
     private String outputFilePath;
     private DataWriter dataWriter;
     private int parsedFiles;
-    private int foundStructures;
+    private long foundStructures;
 
     public FileExplorer(String[] args) throws Exception {
         setInputDirectoryPath(args);
@@ -116,9 +116,6 @@ public class FileExplorer {
             visitor.visit(tree);
 
             List<DataRow> dataRows = dataCollector.getDataRows();
-
-            log.info("Found " + dataRows.size() + " structures");
-            log.info("Saving structures...");
 
             dataWriter.writeData(dataRows);
             parsedFiles++;

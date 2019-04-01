@@ -4,6 +4,8 @@ import org.antlr.v4.runtime.TokenSource;
 import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class DataCollector {
+    private final Logger log = LoggerFactory.getLogger(getClass());
 
     private static final Map<Class, String> structures = new HashMap<>();
     static {
@@ -302,6 +305,7 @@ public class DataCollector {
     }
 
     public List<DataRow> getDataRows() {
+        log.info("Found " + dataRows.size() + " structures");
         return dataRows;
     }
 
