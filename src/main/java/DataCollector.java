@@ -35,7 +35,7 @@ public class DataCollector {
         structures.put(Java8Parser.EnumDeclarationContext.class, "enum_declaration");
         structures.put(Java8Parser.ConstructorDeclarationContext.class, "constructor_declaration");
         structures.put(Java8Parser.MethodDeclarationContext.class, "method_declaration");
-        structures.put(Java8Parser.FieldDeclarationContext.class, "class_member_declaration");
+        structures.put(Java8Parser.FieldDeclarationContext.class, "field_declaration");
         structures.put(Java8Parser.ClassDeclarationContext.class, "class_declaration");
         structures.put(Java8Parser.PackageDeclarationContext.class, "package_declaration");
         structures.put(Java8Parser.ImportDeclarationContext.class, "import_declaration");
