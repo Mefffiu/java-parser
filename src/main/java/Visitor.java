@@ -22,12 +22,6 @@ public class Visitor extends Java8BaseVisitor<String> {
     }
 
     @Override
-    public String visitFinally_(Java8Parser.Finally_Context ctx) {
-        this.dataCollector.collectDataRow(ctx);
-        return super.visitFinally_(ctx);
-    }
-
-    @Override
     public String visitCatchClause(Java8Parser.CatchClauseContext ctx) {
         this.dataCollector.collectDataRow(ctx);
         return super.visitCatchClause(ctx);
@@ -127,5 +121,11 @@ public class Visitor extends Java8BaseVisitor<String> {
     public String visitPackageDeclaration(Java8Parser.PackageDeclarationContext ctx) {
         this.dataCollector.collectDataRow(ctx);
         return super.visitPackageDeclaration(ctx);
+    }
+
+    @Override
+    public String visitImportDeclaration(Java8Parser.ImportDeclarationContext ctx) {
+        this.dataCollector.collectDataRow(ctx);
+        return super.visitImportDeclaration(ctx);
     }
 }

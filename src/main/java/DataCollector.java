@@ -22,7 +22,6 @@ public class DataCollector {
 
         structures.put(Java8Parser.MethodInvocationContext.class, "method_invocation");
         structures.put(Java8Parser.TryWithResourcesStatementContext.class, "try_with_resources_statement");
-        structures.put(Java8Parser.Finally_Context.class, "finally_");
         structures.put(Java8Parser.CatchClauseContext.class, "catch_clause");
         structures.put(Java8Parser.TryStatementContext.class, "try_statement");
         structures.put(Java8Parser.ReturnStatementContext.class, "return_statement");
@@ -40,6 +39,7 @@ public class DataCollector {
         structures.put(Java8Parser.ClassMemberDeclarationContext.class, "class_member_declaration");
         structures.put(Java8Parser.ClassDeclarationContext.class, "class_declaration");
         structures.put(Java8Parser.PackageDeclarationContext.class, "package_declaration");
+        structures.put(Java8Parser.ImportDeclarationContext.class, "import_declaration");
     }
 
     private List<DataRow> dataRows;
