@@ -2,7 +2,7 @@
 
 [ANTLR](https://github.com/antlr/antlr4) based Java parser that writes output to `.csv` file.
 
-###Prerequisites:
+### Prerequisites:
 
 Java Runtime Environment 8:
 
@@ -17,10 +17,10 @@ Windows:
 MacOS:
 NOT SUPPORTED
 
-###Download:
+### Download:
 Download latest `.jar` file from: [Github Releases](https://github.com/falanadamian/java-parser/releases)
 
-###Usage:
+### Usage:
 
 ```
 java -jar <java-parser-x.x.jar> <input-directory-path> [output-file-path.csv]
@@ -40,7 +40,7 @@ output.csv => output.csv
 output.txt => output.txt.csv
 ```
 
-###Examples:
+### Examples:
 * Run `.jar` file:
 ```
 $ java -jar java-parser-1.0.jar input/
@@ -67,7 +67,7 @@ df = pd.read_csv(path_to_output_csv)
 df.head()
 ```
 
-#Authors
+# Authors
 * [Karol Leśniak](https://github.com/kajkal)
 * [Damian Falana](https://github.com/falanadamian)
 * [Mateusz Rybka](https://github.com/Mefffiu)
