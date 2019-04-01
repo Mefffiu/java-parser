@@ -1,34 +1,35 @@
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class DataRow {
 
     private String label;
-    private String codeFragment;
     private String context;
-
-    public DataRow() {
-    }
-
-    public String getLabel() {
-        return label;
-    }
+    private String codeFragment;
 
     public void setLabel(String label) {
         this.label = label;
     }
 
-    public String getCodeFragment() {
-        return codeFragment;
+    public void setContext(String context) {
+        this.context = context;
     }
 
     public void setCodeFragment(String codeFragment) {
         this.codeFragment = codeFragment;
     }
 
-    public String getContext() {
-        return context;
+    private String escapeQuotes(String data) {
+        String escapedData = Optional.ofNullable(data).orElse("-");
+        escapedData = escapedData.replace("\"", "\"\"");
+        return '"' + escapedData + '"';
     }
 
-    public void setContext(String context) {
-        this.context = context;
+    public String toCSVFormat() {
+        return Stream.of(label, context, codeFragment)
+                .map(this::escapeQuotes)
+                .collect(Collectors.joining(","));
     }
 
     @Override

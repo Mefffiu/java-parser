@@ -5,16 +5,14 @@ import org.antlr.v4.runtime.misc.Interval;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class DataCollector {
 
     private static final Map<Class, String> structures = new HashMap<>();
-
     static {
         structures.put(Java8Parser.CompilationUnitContext.class, "file_content"); // highest order structure
 
@@ -255,7 +253,13 @@ public class DataCollector {
         structures.put(Java8Parser.LiteralContext.class, "literal");
     }
 
-    private static String findCodeFragment(ParseTree ctx) {
+    private List<DataRow> dataRows;
+
+    public DataCollector() {
+        dataRows = new ArrayList<>();
+    }
+
+    private String findCodeFragment(ParseTree ctx) {
         if (ctx instanceof TerminalNode) {
             TerminalNode node = (TerminalNode) ctx;
 
@@ -278,7 +282,7 @@ public class DataCollector {
         return builder.toString();
     }
 
-    private static String findContext(ParseTree ctx) {
+    private String findContext(ParseTree ctx) {
         for (ParseTree node = ctx.getParent(); node != null; node = node.getParent()) {
             for (Class structureClass : structures.keySet()) {
                 if (node.getClass().equals(structureClass)) {
@@ -289,38 +293,16 @@ public class DataCollector {
         return null;
     }
 
-    void saveDataRow(ParseTree ctx, String outputFilePath) {
+    public void collectDataRow(ParseTree ctx) {
         DataRow dataRow = new DataRow();
         dataRow.setLabel(structures.get(ctx.getClass()));
         dataRow.setContext(findContext(ctx));
         dataRow.setCodeFragment(findCodeFragment(ctx).trim());
-
-        BufferedWriter writer;
-        try {
-            writer = new BufferedWriter(new FileWriter(outputFilePath, true));
-            writer.newLine();
-            writer.append(convertToCSV(Arrays.asList(dataRow.getLabel(), dataRow.getContext(), dataRow.getCodeFragment())));
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        dataRows.add(dataRow);
     }
 
-    private String convertToCSV(List<String> data) {
-        return data.stream()
-                .map(this::escapeQuotes)
-                .collect(Collectors.joining(","));
+    public List<DataRow> getDataRows() {
+        return dataRows;
     }
 
-    private String escapeQuotes(String data) {
-        if (Objects.isNull(data)) {
-            return "-";
-        }
-        String escapedData = data.replaceAll("\\R", " ");
-        if (data.contains("\"") || data.contains("'")) {
-            data = data.replace("\"", "\"\"");
-            escapedData = "\"" + data + "\"";
-        }
-        return escapedData;
-    }
 }
