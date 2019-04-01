@@ -101,7 +101,7 @@ public class FileExplorer {
 
     private void analyzeFileStructure(File file) {
         String absolutePath = file.getAbsolutePath();
-        log.info("Parse file: '" + absolutePath + "'");
+        log.info("Parsing file: '" + absolutePath + "'");
         try {
             CharStream charStream = CharStreams.fromFileName(absolutePath);
 
