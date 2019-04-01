@@ -22,12 +22,6 @@ public class Visitor extends Java8BaseVisitor<String> {
     }
 
     @Override
-    public String visitCatchClause(Java8Parser.CatchClauseContext ctx) {
-        this.dataCollector.collectDataRow(ctx);
-        return super.visitCatchClause(ctx);
-    }
-
-    @Override
     public String visitTryStatement(Java8Parser.TryStatementContext ctx) {
         this.dataCollector.collectDataRow(ctx);
         return super.visitTryStatement(ctx);
