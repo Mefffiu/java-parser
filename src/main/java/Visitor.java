@@ -100,9 +100,9 @@ public class Visitor extends Java8BaseVisitor<String> {
     }
 
     @Override
-    public String visitClassMemberDeclaration(Java8Parser.ClassMemberDeclarationContext ctx) {
+    public String visitFieldDeclaration(Java8Parser.FieldDeclarationContext ctx) {
         this.dataCollector.collectDataRow(ctx);
-        return super.visitClassMemberDeclaration(ctx);
+        return super.visitFieldDeclaration(ctx);
     }
 
     @Override
