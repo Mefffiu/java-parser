@@ -44,7 +44,7 @@ output.txt => output.txt.csv
 This example is based on [code fragment](./example/Example.java) in example resources
 * Run `.jar` file from cmd with command:
 ```
-java -jar java-parser-1.0-SNAPSHOT.jar D:\Java_projects\java-parser\example D:\Java_projects\java-parser\example\out
+java -jar java-parser-1.0-SNAPSHOT.jar D:\Java_projects\java-parser\example D:\Java_projects\java-parser\example\output
 ```
 * The command logs should look like this:
 ```

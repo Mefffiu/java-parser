@@ -1,0 +1,7 @@
+[main] INFO FileExplorer - Parsed directory: '/home/user/example-code'
+[main] INFO FileExplorer - Output file:      '/home/user/example-code/output.csv'
+[main] INFO FileExplorer - Parsing file: '/home/user/example-code/Example.java'
+[main] INFO DataCollector - Found 6 structures
+[main] INFO DataWriter - Saving structures...
+[main] INFO FileExplorer - Parsed 1 files
+[main] INFO FileExplorer - Found 6 structures

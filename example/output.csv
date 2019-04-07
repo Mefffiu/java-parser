@@ -1,0 +1,7 @@
+label,context,code_fragment
+"class_declaration","file_content","public class Example { private int limit; public Example(int limit) { this.limit = limit; } public void test() { for (int i = 0; i < limit; i++) { for (int j = 0; j < i; j++) { int r = i + j; } } } }"
+"field_declaration","class_declaration","private int limit;"
+"constructor_declaration","class_declaration","public Example(int limit) { this.limit = limit; }"
+"method_declaration","class_declaration","public void test() { for (int i = 0; i < limit; i++) { for (int j = 0; j < i; j++) { int r = i + j; } } }"
+"for_statement","method_declaration","for (int i = 0; i < limit; i++) { for (int j = 0; j < i; j++) { int r = i + j; } }"
+"for_statement","for_statement","for (int j = 0; j < i; j++) { int r = i + j; }"
