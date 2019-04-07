@@ -14,9 +14,6 @@ Windows:
 
 * [Oracle JRE](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
 
-MacOS:
-[NOT SUPPORTED](https://github.com/falanadamian/java-parser/issues/3)
-
 ### Download:
 Download latest `.jar` file from: [Github Releases](https://github.com/falanadamian/java-parser/releases)
 
