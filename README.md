@@ -41,24 +41,25 @@ output.txt => output.txt.csv
 ```
 
 ### Examples:
-* Run `.jar` file:
+This example is based on [code fragment](./example/Example.java) in example resources
+* Run `.jar` file from cmd with command:
 ```
-$ java -jar java-parser-1.0.jar input/
-[main] INFO FileExplorer - Parsed directory: '/home/user/java-parser-test/input'
-[main] INFO FileExplorer - Output file:      '/home/user/java-parser-test/output.csv'
-[main] INFO FileExplorer - Parsing file: '/home/user/java-parser-test/input/NWD.java'
-[main] INFO DataCollector - Found 383 structures
-[main] INFO DataWriter - Saving structures...
-[main] INFO FileExplorer - Parsing file: '/home/user/java-parser-test/input/Java8Parser.java'
-[main] INFO DataCollector - Found 527559 structures
-[main] INFO DataWriter - Saving structures...
-[main] INFO FileExplorer - Parsing file: '/home/user/java-parser-test/input/Main.java'
-[main] INFO DataCollector - Found 315 structures
-[main] INFO DataWriter - Saving structures...
-[main] INFO FileExplorer - Parsed 3 files
-[main] INFO FileExplorer - Found 528257 structures
+java -jar java-parser-1.0-SNAPSHOT.jar D:\Java_projects\java-parser\example D:\Java_projects\java-parser\example\out
 ```
-
+* The command logs should look like this:
+```
+[main] INFO FileExplorer - Parsed directory: '/home/user/example-code'
+[main] INFO FileExplorer - Output file:      '/home/user/example-code/output.csv'
+[main] INFO FileExplorer - Parsing file: '/home/user/example-code/Example.java'
+[main] INFO DataCollector - Found 6 structures
+[main] INFO DataWriter - Saving structures...
+[main] INFO FileExplorer - Parsed 1 files
+[main] INFO FileExplorer - Found 6 structures
+```
+* Results should appear in folder given previously. The output for this example is [here](./example/output.csv) 
+* antlr v4 grammar plugin can be used to easily generate structure tree of parsed code
+![structure tree](./example/example.svg)
+<img src = "./example/example.svg">
 * Import data using Python:
 ```python
 import pandas as pd
