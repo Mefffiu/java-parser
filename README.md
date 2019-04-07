@@ -58,8 +58,8 @@ java -jar java-parser-1.0-SNAPSHOT.jar D:\Java_projects\java-parser\example D:\J
 ```
 * Results should appear in folder given previously. The output for this example is [here](./example/output.csv) 
 * antlr v4 grammar plugin can be used to easily generate structure tree of parsed code
-![structure tree](./example/example.svg)
-<img src = "./example/example.svg">
+
+<img src = "./example/example.svg" style="width: 800px;height: 400px;">
 * Import data using Python:
 ```python
 import pandas as pd
