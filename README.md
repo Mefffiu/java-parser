@@ -44,7 +44,7 @@ output.txt => output.txt.csv
 This example is based on [code fragment](./example/Example.java) in example resources
 * Run `.jar` file from cmd with command:
 ```
-java -jar java-parser-1.0-SNAPSHOT.jar D:\Java_projects\java-parser\example D:\Java_projects\java-parser\example\output
+java -jar java-parser-1.1.jar /home/user/example-code /home/user/example-code/output.csv
 ```
 * The command logs should look like this:
 ```
@@ -59,7 +59,8 @@ java -jar java-parser-1.0-SNAPSHOT.jar D:\Java_projects\java-parser\example D:\J
 * Results should appear in folder given previously. The output for this example is [here](./example/output.csv) 
 * antlr v4 grammar plugin can be used to easily generate structure tree of parsed code
 
-<img src = "./example/example.svg" width="800px" height="400px">
+<img src = "./example/example.svg" width="882px" height="400px">
+
 * Import data using Python:
 ```python
 import pandas as pd
